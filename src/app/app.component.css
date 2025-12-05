@@ -1,0 +1,7 @@
+main > section { padding-top: 4rem; padding-bottom: 4rem; }
+
+.section-divider { height: 3px; background: linear-gradient(90deg, rgba(0,0,0,0), rgba(15,23,42,0.6) 50%, rgba(0,0,0,0)); margin: 3rem 0; }
+
+/* Make sure large banner sections use the brand-first spacing */
+.banner { padding: 4rem 0; }
+
