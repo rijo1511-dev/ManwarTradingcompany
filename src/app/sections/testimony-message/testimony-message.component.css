@@ -1,0 +1,87 @@
+/* Testimony message carousel styles */
+.testimony-wrapper {
+  width: 100%;
+  margin: 0 auto; /* center the container */
+  padding: 0.75rem 0.5rem;
+  box-sizing: border-box;
+}
+
+.testimony-viewport {
+  /* height is set dynamically in TS to match tallest message */
+  overflow: hidden;
+  position: relative;
+  /* remove background/card look - keep transparent */
+  background: transparent;
+  width: 100%;
+}
+
+.testimony-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* row layout - horizontally slide */
+  transition: transform 0.6s cubic-bezier(.22,.9,.12,1);
+  will-change: transform;
+}
+
+.testimony-item {
+  box-sizing: border-box;
+  /* each item occupies the viewport width so we slide horizontally between items */
+  min-width: 100%;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  /* ensure word wrapping for small screens */
+  word-break: break-word;
+}
+
+.testimony-item p {
+  margin: 0 0 0.5rem 0;
+}
+
+/* Name & role styles */
+.testimony-item .font-semibold {
+  text-align: left;
+}
+.testimony-item .text-gray-600 {
+  text-align: left;
+}
+
+/* Make buttons look a bit nicer */
+.controls button {
+  cursor: pointer;
+  border: 1px solid #e5e7eb; /* light gray */
+  background: #f9fafb;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+}
+.controls button:hover {
+  background: #f3f4f6;
+}
+
+/* Small screens: keep things compact */
+@media (max-width: 640px) {
+  .testimony-wrapper { padding: 0.25rem; }
+  .testimony-item { padding-left: 0.75rem; padding-right: 0.75rem; }
+}
+
+.controls button { cursor: pointer; }
+
+/* Make the list items vertically center, but allow flowing text */
+.testimony-item {
+  display: flex;
+  align-items: center; /* vertical centering */
+}
+
+/* larger text size to match section text sizes */
+.testimony-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* fade in/out effect for messages */
+.testimony-item { opacity: 0; transform: translateY(0); transition: opacity 0.5s ease, transform 0.4s ease; }
+.testimony-item.active { opacity: 1; }
+.testimony-item.exiting { opacity: 0; transform: translateY(-6px); filter: blur(0.5px); }
+
+.testimony-item .font-semibold { font-size: 1.05rem; }
+.testimony-item .text-sm { font-size: 0.95rem; }
