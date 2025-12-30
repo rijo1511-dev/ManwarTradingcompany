@@ -1,4 +1,19 @@
-:host { display: block; }
+:host {
+    display: block;
+}
 
-:host ::ng-deep footer { background: linear-gradient(90deg, #173708 0%, #0b2a1e 100%); }
-:host ::ng-deep footer a { color: rgba(255,255,255,0.9); }
+:host ::ng-deep footer {
+    /* Navy Blue background to match header */
+    background: #152239;
+    /* Mustard Yellow top accent */
+    border-top: 6px solid #EAA334;
+    color: white;
+}
+
+:host ::ng-deep footer a {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+:host ::ng-deep footer a:hover {
+    color: #EAA334;
+}
