@@ -6,33 +6,38 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        /* Updated brand palette to match provided bright green/dark green styling */
+        /* Brand palette updated to match image (soft creams and blue palette) */
         brand: {
-          50: '#f2fff2',
-          100: '#dfffe0',
-          200: '#c6ffbf',
-          300: '#b0ff9f',
-          400: '#90ff6e',
-          500: '#7ef32b',
-          600: '#68c61f',
-          700: '#4b8f16',
-          800: '#2f5f0e',
-          900: '#173708',
+          50: '#f4f8ff',
+          100: '#e7f0ff',
+          200: '#c9deff',
+          300: '#a8caff',
+          400: '#8ea8ff',
+          500: '#84a8ff',
+          600: '#6f8de6',
+          700: '#5570ba',
+          800: '#3b4f91',
+          900: '#22325f',
+          950: '#2D3C6C',
+
         },
-        /* Secondary/dark green used for header and major accents */
-        darkgreen: {
-          50: '#edf7ef',
-          100: '#d6f0d7',
-          300: '#9ed9a6',
-          500: '#1b3b2d',
-          700: '#0b2a1e',
+        /* Soft cream/neutral palette */
+        cream: {
+          50: '#fffaf3',
+          100: '#fff6dd',
+          200: '#fff1c4',
+          300: '#ffe9a8',
+          400: '#ffe18c',
+          500: '#ffd78a',
         },
-        accent: {
-          50: '#f6ffea',
-          100: '#efffcb',
-          200: '#e6ff9a',
-          300: '#dfff5a',
-          500: '#d3ff00',
+        /* Deep text/nav color (navy) */
+        navy: {
+          50: '#f4f7fb',
+          100: '#e9eef8',
+          200: '#c9d8f2',
+          300: '#9fb2e2',
+          500: '#22325f',
+          700: '#152239',
         }
       }
     },

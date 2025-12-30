@@ -24,12 +24,12 @@
 	max-height: 72px;
 	max-width: 100%;
 	object-fit: contain;
-	filter: grayscale(100%) opacity(0.9);
-	transition: transform .18s ease, filter .18s ease, opacity .18s ease;
+	filter: grayscale(40%) opacity(0.9);
+	transition: transform .9s ease, filter .18s ease, opacity .18s ease;
 }
 
 .client-item img:hover {
-	transform: scale(1.03);
+	transform: scale(2.03);
 	filter: none;
 	opacity: 1;
 }

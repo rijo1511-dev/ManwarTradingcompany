@@ -1,17 +1,17 @@
 :host { display: block; }
 
-#about .about-title { font-weight: 800; font-size: 2rem; color: #0b2a1e; }
+#about .about-title { font-weight: 800; font-size: 2rem; color: var(--text-dark); }
 #about .about-content p { color: rgba(15,23,42,0.8); line-height: 1.6; }
 #about .about-container { max-width: 64rem; margin: 0 auto; padding: 2rem 1rem; }
 
 #about .kpis { display: flex; gap: 2rem; justify-content: space-between; margin-top: 2rem; }
 #about .kpi { text-align: center; }
-#about .kpi .value { font-weight: 800; font-size: 1.6rem; color: #173708; }
+.kpi .value { font-weight: 800; font-size: 1.6rem; color: var(--brand-500); }
 .kpi .label { font-size: .85rem; color: rgba(15,23,42,0.6); }
 
 #about { background-color: transparent; }
 
-#about h2 { color: #0f172a; }
+#about h2 { color: var(--text-dark); }
 
 /* Container and typography for About section */
 .about-container {
@@ -25,12 +25,12 @@
 	font-size: 1.6rem;
 	font-weight: 700;
 	margin-bottom: 1rem;
-	color: #0b1220;
+	color: var(--text-dark);
 }
 
 .about-content {
 	text-align: justify;
-	color: #374151;
+	color: rgba(31,41,55,0.9);
 	line-height: 1.72;
 	font-size: 1rem;
 }

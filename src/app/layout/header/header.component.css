@@ -1,26 +1,198 @@
 :host {
   display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  width: 100%;
 }
 
-:host ::ng-deep .brand-dark {
-  background-color: #1b3b2d; /* fallback (darkgreen.500) */
+/* Base header construction */
+.header-wrapper {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-:host ::ng-deep a:hover {
-  color: #68c61f; /* brand.600 */
+/* The geometrical background shapes */
+.bg-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  /* Let clicks pass through to links */
+  z-index: 0;
 }
 
-:host ::ng-deep .logo-compact {
-  height: 42px;
+/* Mustard Yellow Strip - Top Left */
+.shape-yellow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  /* Extends past the middle */
+  height: 24px;
+  /* Approximate height from image */
+  background-color: #EAA334;
+  /* Mustard yellow approximation */
+  z-index: 1;
 }
 
-/* Make the logo appear with good contrast on dark nav */
-:host ::ng-deep .brand-dark .logo-compact {
-  filter: brightness(0) invert(1);
+/* Blue Angular Block - Right Side */
+.shape-blue {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 55%;
+  /* Covers right side */
+  background-color: var(--navy-700, #152239);
+  /* Use existing variable or fallback */
+  /* Clip path to create the slanted left edge */
+  clip-path: polygon(120px 0, 100% 0, 100% 100%, 0 100%);
+  z-index: 2;
 }
 
-/* Ensure text links on dark background are white by default */
-:host ::ng-deep .brand-dark a { color: rgba(255,255,255,0.95); }
+/* Content Layout (Relative to sit above bg) */
+.header-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  /* Vertical center */
+  justify-content: space-between;
+  height: 90px;
+  /* Increased height to accommodate the design */
+  padding: 0 1rem;
+}
 
-/* CTA small button adjustments for dark background */
-:host ::ng-deep .brand-dark .btn-small { color: #0b2a1e; background: #7ef32b; }
+/* Logo Area (Left) */
+.logo-area {
+  padding-right: 2rem;
+  padding-top: 10px;
+  /* Push down slightly from the yellow bar */
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 55px;
+  width: auto;
+  margin-right: 1rem;
+}
+
+.brand-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #1e293b;
+  /* Dark slate for contrast on white */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+/* Navigation Area (Right) */
+.nav-area {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 100%;
+  padding-right: 2rem;
+}
+
+.nav-link {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #EAA334;
+  /* Hover to yellow */
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* Mobile styles */
+@media (max-width: 900px) {
+  .shape-yellow {
+    width: 100%;
+  }
+
+  .shape-blue {
+    width: 100%;
+    clip-path: none;
+    top: 0;
+    height: 100%;
+    z-index: -1;
+    background: var(--navy-700);
+  }
+
+  .header-content {
+    height: 70px;
+  }
+
+  .logo-area {
+    padding-top: 0;
+    /* In mobile, if background is all blue, text needs to be white */
+    color: white;
+  }
+
+  .brand-text {
+    color: white;
+  }
+
+  .logo-img {
+    filter: brightness(0) invert(1);
+  }
+
+  /* Invert logic for dark bg */
+
+  .nav-area {
+    display: none;
+  }
+
+  /* Hidden by default on mobile */
+
+  .mobile-toggle {
+    display: block;
+  }
+}
+
+/* Mobile Menu Dropdown */
+.mobile-menu {
+  background-color: var(--navy-700);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 1rem;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mobile-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #EAA334;
+}

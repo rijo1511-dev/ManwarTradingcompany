@@ -6,6 +6,7 @@
 .services-hero {
   min-height: 26rem;
   overflow: hidden;
+  background-color: #1e2947;
 }
 
 /* ====== CARD BASE STYLE ====== */
@@ -83,7 +84,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #7ef32b 0%, #22c55e 100%);
+  background: linear-gradient(135deg, var(--brand-500) 0%, var(--brand-400) 100%);
 }
 
 .service-icon-inner svg { width: 28px; height: 28px; }
@@ -107,7 +108,7 @@
 .service-card:hover,
 .service-card:focus-within {
   transform: translateY(-22px);
-  box-shadow: 0 30px 50px rgba(19, 208, 44, 0.18);
+  box-shadow: 0 30px 50px rgba(132,168,255,0.18);
 }
 
 .service-card:hover .service-icon-inner,
@@ -117,7 +118,7 @@
 
 /* keyboard focus ring */
 .service-card:focus-visible {
-  outline: 3px solid rgba(126, 243, 43, 0.45);
+  outline: 3px solid rgba(132,168,255, 0.45);
   outline-offset: 4px;
 }
 
@@ -140,12 +141,12 @@
 
 /* Alternate pill backgrounds and reversed layout for visual parity with the provided design. */
 .services-grid .service-card:nth-child(odd) {
-  background: linear-gradient(90deg, rgba(126, 243, 43, 0.98) 0%, rgba(34, 197, 94, 0.98) 100%);
-  color: #063d25; /* dark text on green for contrast where needed */
+  background: linear-gradient(90deg, var(--brand-500), var(--brand-400));
+  color: var(--text-dark); /* dark text on light brand colors */
 }
 .services-grid .service-card:nth-child(even) {
-  background: #1b3b2d; /* brand dark green (fallback used across project) */
-  color: #ffffff;
+  background: var(--navy-500); /* dark/navy for even cards */
+  color: var(--text-light);
   flex-direction: row-reverse; /* put icon to the right on even cards */
 }
 
@@ -156,7 +157,7 @@
   .service-card { flex-direction: column; text-align:center; padding: 1.25rem; border-radius: .9rem; }
   .service-icon-ring { border: 6px solid #fff; width: 4.6rem; height: 4.6rem; }
   .service-icon-inner { width: 2.4rem; height: 2.4rem; }
-  .service-content .service-title { color: #0f172a; }
+  .service-content .service-title { color: var(--text-dark); }
 }
 
 @media (min-width: 640px) {
@@ -172,12 +173,12 @@
 
 /* Marker (bullet) color tweaks */
 .service-desc li::marker { color: rgba(255,255,255,0.9); }
-.services-grid .service-card:nth-child(odd) .service-desc li::marker { color: rgba(8,18,12,0.9); }
-.services-grid .service-card:nth-child(even) .service-desc li::marker { color: #7ef32b; }
+.services-grid .service-card:nth-child(odd) .service-desc li::marker { color: var(--text-dark); }
+.services-grid .service-card:nth-child(even) .service-desc li::marker { color: var(--brand-300); }
 
 /* Titles contrasting for odd/even */
-.services-grid .service-card:nth-child(odd) .service-title { color: #063d25; }
-.services-grid .service-card:nth-child(even) .service-title { color: #fff; }
+.services-grid .service-card:nth-child(odd) .service-title { color: var(--text-dark); }
+.services-grid .service-card:nth-child(even) .service-title { color: var(--text-light); }
 
 @media (min-width: 768px) {
   .service-title {
