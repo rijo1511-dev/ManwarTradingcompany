@@ -133,48 +133,51 @@
 }
 
 /* Mobile styles */
+/* Mobile styles */
 @media (max-width: 900px) {
   .shape-yellow {
     width: 100%;
   }
 
   .shape-blue {
-    width: 100%;
-    clip-path: none;
-    top: 0;
-    height: 100%;
-    z-index: -1;
-    background: var(--navy-700);
+    display: none;
+    /* Hide the blue block on mobile so bg is white */
   }
 
   .header-content {
     height: 70px;
   }
 
+  /* Reset logo area to default (Dark Text on White) */
   .logo-area {
-    padding-top: 0;
-    /* In mobile, if background is all blue, text needs to be white */
-    color: white;
+    padding-top: 10px;
+    color: #1e293b;
   }
 
   .brand-text {
-    color: white;
+    color: #1e293b;
+    font-size: 1rem;
+    /* Slightly smaller for mobile if needed */
   }
 
   .logo-img {
-    filter: brightness(0) invert(1);
+    filter: none;
+    /* Do not invert colors */
+    display: block;
+    /* Ensure visible */
+    height: 45px;
+    /* Slightly smaller logo */
   }
-
-  /* Invert logic for dark bg */
 
   .nav-area {
     display: none;
   }
 
-  /* Hidden by default on mobile */
-
   .mobile-toggle {
     display: block;
+    color: #152239;
+    /* Navy toggle on white bg */
+    border-color: #152239;
   }
 }
 
