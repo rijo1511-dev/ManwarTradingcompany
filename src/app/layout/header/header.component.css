@@ -136,7 +136,12 @@
 /* Mobile styles */
 @media (max-width: 900px) {
   .shape-yellow {
-    width: 100%;
+    display: none;
+  }
+
+  .header-wrapper {
+    background-color: var(--navy-700, #152239);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .shape-blue {
@@ -148,21 +153,21 @@
     height: 70px;
   }
 
-  /* Reset logo area to default (Dark Text on White) */
+  /* Set logo area to White Text on Blue Background */
   .logo-area {
     padding-top: 10px;
-    color: #1e293b;
+    color: #ffffff;
   }
 
   .brand-text {
-    color: #1e293b;
+    color: #ffffff;
     font-size: 1rem;
     /* Slightly smaller for mobile if needed */
   }
 
   .logo-img {
-    filter: none;
-    /* Do not invert colors */
+    filter: brightness(0) invert(1);
+    /* Make logo white */
     display: block;
     /* Ensure visible */
     height: 45px;
@@ -175,9 +180,9 @@
 
   .mobile-toggle {
     display: block;
-    color: #152239;
-    /* Navy toggle on white bg */
-    border-color: #152239;
+    color: #ffffff;
+    /* White toggle on blue bg */
+    border-color: rgba(255, 255, 255, 0.5);
   }
 }
 
