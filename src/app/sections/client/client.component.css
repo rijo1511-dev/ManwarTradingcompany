@@ -1,44 +1,78 @@
-:host { display: block; }
+:host {
+	display: block;
+}
 
-#clients { background-color: transparent; }
+#clients {
+	background-color: transparent;
+}
 
-.shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.shadow-sm {
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
 
 /* Logos grid styles */
-.clients-grid {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 1.25rem;
-	align-items: center;
+/* Marquee Styles */
+.marquee-container {
+	overflow: hidden;
+	width: 100%;
+	position: relative;
+	/* Mask to fade edges */
+	-webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+	mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+	display: flex;
+	width: max-content;
+	gap: 2rem;
+	/* Adjust speed here (60s is slow) */
+	animation: scroll 60s linear infinite;
+}
+
+/* Pause on hover for better UX */
+.marquee-track:hover {
+	animation-play-state: paused;
+}
+
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-50%);
+	}
 }
 
 .client-item {
+	flex: 0 0 auto;
+	padding: 1rem;
+	width: 150px;
+	/* Fixed width for consistent spacing */
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 0.75rem;
-	background: transparent;
 }
 
 .client-item img {
-	max-height: 72px;
+	max-height: 70px;
 	max-width: 100%;
 	object-fit: contain;
-	filter: grayscale(40%) opacity(0.9);
-	transition: transform .9s ease, filter .18s ease, opacity .18s ease;
+	transition: all 0.3s ease;
 }
 
+/* Highlight effect on hover */
 .client-item img:hover {
-	transform: scale(2.03);
-	filter: none;
-	opacity: 1;
+	transform: scale(1.1);
 }
 
-@media (min-width: 640px) {
-	.clients-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
+/* Desktop sizing adjustments */
 @media (min-width: 1024px) {
-	.clients-grid { grid-template-columns: repeat(6, 1fr); }
-	.client-item img { max-height: 84px; }
+	.client-item {
+		width: 180px;
+	}
+
+	.client-item img {
+		max-height: 85px;
+	}
 }
