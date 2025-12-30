@@ -5,45 +5,61 @@
     </h2>
 
     <div class="grid md:grid-cols-2 gap-10">
-      <div>
+      <div class="md:col-span-1">
         <p class="mb-4 text-gray-700">
           Reach out to us for inquiries, quotations, or project discussions.
         </p>
         <ul class="space-y-2 text-gray-800 text-sm">
           <li class="flex items-center gap-3">
             <!-- phone icon -->
-            <svg class="w-5 h-5 text-brand-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2.5a1 1 0 01.98.804l.5 3A1 1 0 0010 8h0a1 1 0 01-.293.707l-1.5 1.5a11 11 0 005.657 5.657l1.5-1.5A1 1 0 0116 13h0a1 1 0 01.396.149l3 .5A1 1 0 0120 14.5V17a2 2 0 01-2 2A17 17 0 013 5z" />
+            <svg class="w-5 h-5 text-brand-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 5a2 2 0 012-2h2.5a1 1 0 01.98.804l.5 3A1 1 0 0010 8h0a1 1 0 01-.293.707l-1.5 1.5a11 11 0 005.657 5.657l1.5-1.5A1 1 0 0116 13h0a1 1 0 01.396.149l3 .5A1 1 0 0120 14.5V17a2 2 0 01-2 2A17 17 0 013 5z" />
             </svg>
-            <span><strong>Phone:</strong> +974 44216012</span>
+            <span><strong>Phone:</strong> {{ contact?.phone }}</span>
           </li>
 
           <li class="flex items-center gap-3">
             <!-- fax icon -->
-            <svg class="w-5 h-5 text-brand-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9V6a2 2 0 012-2h8a2 2 0 012 2v3M6 9h12v8a2 2 0 01-2 2H8a2 2 0 01-2-2V9z" />
+            <svg class="w-5 h-5 text-brand-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M6 9V6a2 2 0 012-2h8a2 2 0 012 2v3M6 9h12v8a2 2 0 01-2 2H8a2 2 0 01-2-2V9z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 22v-6h6v6" />
             </svg>
-            <span><strong>Fax:</strong> +974 44216013</span>
+            <span><strong>Fax:</strong> {{ contact?.fax }}</span>
           </li>
 
           <li class="flex items-center gap-3">
             <!-- email icon -->
-            <svg class="w-5 h-5 text-brand-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            <svg class="w-5 h-5 text-brand-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            <span><strong>Email:</strong> projects&#64;manawer.com</span>
+            <span><strong>Email:</strong> {{ contact?.email }}</span>
           </li>
 
           <li class="flex items-start gap-3">
             <!-- location icon -->
-            <svg class="w-5 h-5 text-brand-500 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z" />
+            <svg class="w-5 h-5 text-brand-500 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z" />
             </svg>
-            <span><strong>Address:</strong> Al Azizya Street Doha - Qatar</span>
+            <span><strong>Address:</strong> {{ contact?.address }}</span>
           </li>
         </ul>
+      </div>
+
+      <!-- Map Column -->
+      <div class="md:col-span-1 h-64 md:h-auto bg-gray-200 rounded-lg overflow-hidden shadow-sm" *ngIf="mapUrl">
+        <iframe [src]="mapUrl" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""
+          loading="lazy">
+        </iframe>
       </div>
     </div>
   </div>

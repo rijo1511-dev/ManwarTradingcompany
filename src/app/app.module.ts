@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -14,6 +15,12 @@ import { CoreConstructionComponent } from './sections/core-construction/core-con
 import { SpecializedTechnicalComponent } from './sections/specialized-technical/specialized-technical.component';
 import { FinishesCoatingsComponent } from './sections/finishes-coatings/finishes-coatings.component';
 import { TestimonyMessageComponent } from './sections/testimony-message/testimony-message.component';
+
+import { AppConfigService } from './core/services/app-config.service';
+
+export function initializeApp(appConfig: AppConfigService) {
+  return () => appConfig.loadConfig();
+}
 
 @NgModule({
   declarations: [
@@ -32,9 +39,17 @@ import { TestimonyMessageComponent } from './sections/testimony-message/testimon
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [AppConfigService],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
