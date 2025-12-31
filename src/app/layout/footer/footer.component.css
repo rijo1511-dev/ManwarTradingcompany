@@ -17,3 +17,60 @@
 :host ::ng-deep footer a:hover {
     color: #EAA334;
 }
+
+/* Developer Name Tooltip */
+.developer-name {
+    position: relative;
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.2s;
+    display: inline-block;
+}
+
+.developer-name:hover {
+    color: #EAA334;
+    opacity: 1;
+}
+
+.developer-name::after {
+    content: attr(data-email);
+    position: absolute;
+    bottom: 150%;
+    /* Position above the text */
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    background-color: #EAA334;
+    color: #152239;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    pointer-events: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    z-index: 10;
+}
+
+.developer-name::before {
+    /* Triangle arrow */
+    content: '';
+    position: absolute;
+    bottom: 120%;
+    /* Pushed up slightly less than tooltip */
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #EAA334 transparent transparent transparent;
+    opacity: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    z-index: 10;
+}
+
+.developer-name:hover::after,
+.developer-name:hover::before {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+}
