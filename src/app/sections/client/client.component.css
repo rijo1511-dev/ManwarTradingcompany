@@ -26,7 +26,7 @@
 	width: max-content;
 	gap: 2rem;
 	/* Adjust speed here (60s is slow) */
-	animation: scroll 60s linear infinite;
+	animation: scroll 75s linear infinite;
 }
 
 /* Pause on hover for better UX */

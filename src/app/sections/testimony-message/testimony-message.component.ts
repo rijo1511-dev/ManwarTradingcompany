@@ -13,8 +13,8 @@ export class TestimonyMessageComponent implements AfterViewInit, OnDestroy {
       text: `Guided by the vision of Mohamed Ahmed H A Al Jaber, we are committed to contributing to Qatar’s continued growth as a regional economic power. Living in one of the world’s fastest-growing economies, we are proud to have actively participated in its development over the past four decades. Our success is built on consistent standards, strong local and international partnerships, and a selective recruitment process that ensures highly qualified staff deliver the best services.`
     },
     {
-      name: 'Joseph Mathew',
-      role: 'General Manager, Manawer Trading & Contracting',
+      name: 'General Manager',
+      role: null,
       text: `Manawer Trading & Contracting is a professional organization dedicated to serving our clients with honesty, integrity, and accountability. We are committed to transforming our organization into a world-class entity, ensuring sustained growth and long-term success. With a keen focus on engineering trends and modern infrastructure technologies, we leverage skills and innovation to achieve the goals of our valued clients.`
     }
   ];
@@ -32,7 +32,7 @@ export class TestimonyMessageComponent implements AfterViewInit, OnDestroy {
   @ViewChildren('messageItem') messageItems!: QueryList<ElementRef>;
   @ViewChild('viewport') viewport!: ElementRef;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2) { }
 
   ngAfterViewInit(): void {
     // Measure message heights, choose the tallest so each message is fully visible
@@ -99,10 +99,16 @@ export class TestimonyMessageComponent implements AfterViewInit, OnDestroy {
     this.isPaused = false;
   }
 
+  holdTimeout: any = null;
+
   clearTimer(): void {
     if (this.intervalId) {
       clearInterval(this.intervalId);
       this.intervalId = null;
+    }
+    if (this.holdTimeout) {
+      clearTimeout(this.holdTimeout);
+      this.holdTimeout = null;
     }
   }
 
@@ -125,7 +131,7 @@ export class TestimonyMessageComponent implements AfterViewInit, OnDestroy {
     const k = event.key;
     if (k === 'ArrowRight') {
       event.preventDefault();
-      this.next();
+      this.manualNext();
       return;
     }
     // Space toggles pause/resume
@@ -137,6 +143,15 @@ export class TestimonyMessageComponent implements AfterViewInit, OnDestroy {
 
   // Keep prev() as no-op to avoid accidental calls — we enforce only forward motion
   prev(): void { /* intentionally left blank */ }
+
+  manualNext(): void {
+    this.next();
+    this.clearTimer();
+    // Hold for 8 seconds before restarting auto-scroll
+    this.holdTimeout = setTimeout(() => {
+      this.start();
+    }, 8000);
+  }
 
   next(): void {
     // record previous index so we can play a vanish animation
